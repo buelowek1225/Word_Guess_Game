@@ -19,6 +19,7 @@
     <title>Geography Hangman</title>
 </head>
 <body>
+
     <!-- Header -->
     <div class="container">
         <div class="row">
@@ -27,6 +28,7 @@
             </div>
         </div>
     </div>
+
      <!-- Rotating Images  -->
     <div class="image-container">
         <div class="image-container">
@@ -35,6 +37,7 @@
             </div>
         </div>
     </div>
+
     <!-- Game Header -->
     <div class="container-game">
         <div class="row">
@@ -43,6 +46,22 @@
             </div>
         </div>
     </div>
+    
+    <!-- Wins and Loses -->
+    <div class="container-tracker">
+            <div class="row">
+                <div class = "col-sm-6">
+                    <h1> Wins </h1>
+                    <h2></h2>
+                    <h2></h2>
+                </div>
+                <div class = "col-sm-6">
+                    <h1> Loses </h1>
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+
     <!-- Hangman challange -->
     <div class="hangman-container">
         <div class="row">
@@ -52,14 +71,18 @@
             </div>
         </div>
     </div>
+
     <!-- Tracker for Guesses and Letters used (2 columns) -->
     <div class="container-tracker">
         <div class="row">
             <div class = "col-sm-6">
                 <h1> Guesses Left</h1>
+                <h2 id="test3"></h2>
+                <h2 id="losemessage"></h2>
             </div>
             <div class = "col-sm-6">
                 <h1> Letters Used</h1>
+                <h2 id="test2"></h2>
             </div>
         </div>
     </div>
