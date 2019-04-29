@@ -1,12 +1,50 @@
 body {
-    background-color: gray;
+    background: url(../images/beige-tiles.png);
 }
-h1 {margin: 1em;
+h1 {margin: .5em;
 }
-.row {
+/* .row {
+    border: solid;
+} */
+
+.header {
+    text-align: center;
+}
+
+.geo-images {
+    margin: unset;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border: solid;
 }
-.geo-images {
-    width: 1000px;
-    margin-left: 120px;
+.instructions {
+    text-align: center;
+}
+
+.win-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lose-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.guess-word {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.guesses {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lettersused {
+    text-align: center;
+    margin-bottom: 20px;
 }

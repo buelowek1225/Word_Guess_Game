@@ -57,6 +57,22 @@ var wrongletters = [];
 //Guesses left
 var guesses = 12;
 
+//display the number of guesses
+document.getElementById("test3").textContent = guesses
+
+//Wins
+var wins = 0;
+
+//display the number of wins in the html file
+document.getElementById("wincounter").textContent = "0";
+
+//Losses
+var losses = 0;
+
+//display the number of losses in the html file
+document.getElementById("losscounter").textContent = "0";
+
+
 //randomly pick a value from my array
 var rand = Math.floor(Math.random() * geolocations.length);
 // console.log(rand);
@@ -117,15 +133,48 @@ document.addEventListener("keydown", function(keyevent){
         }
         if (guesses == 0 ) {
             document.getElementById("losemessage").textContent = "You Lose :( "
+            losses++;
+            document.getElementById("losscounter").textContent = losses;
         }
         document.getElementById("test3").textContent = guesses
-            
-  
-      
+    } else {
+        var is_winner = true;
+        for (let i = 0; i < geoword.length; i++) {
+            console.log(geoword[i])
+            if (geoword[i] == "_ ") {
+                is_winner = false;
+            }
+            console.log (is_winner);
+
+        }
+        if(is_winner) {
+            wins += 1;
+            document.getElementById("losemessage").textContent = "You Win!!! :)"
+    
+
+            //New Wrong Letter Array
+            wrongletters = [];
+            document.getElementById("test2").textContent = wrongletters;
+
+            //re-load Guesses left
+            guesses = 12;
+            document.getElementById("test3").textContent = guesses;
+            //randomly pick a new value from my array
+            rand = Math.floor(Math.random() * geolocations.length);
+
+            //re-assign to be empty array
+            geoword = []
+
+            //symbolize letters as undersore in the hangmanword feild
+            for (let i = 0; i < geolocations[rand].Letters.length; i++){
+                geoword[i] = "_ ";
+            }
+
+
+        }
+        document.getElementById("wincounter").textContent = wins;
     }
 
 
 
-
 })
-
