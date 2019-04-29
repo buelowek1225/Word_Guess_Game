@@ -1,7 +1,7 @@
 // list of unique geographic regions or locations
 var geolocations = [
     {
-        letters: ["m", "a", "c", "h", "u", "p", "i", "c", "c", "h", "u"],
+        Letters: ["m", "a", "c", "h", "u", "p", "i", "c", "c", "h", "u"],
         name: "machu picchu"
     },
     {
@@ -76,7 +76,7 @@ document.getElementById("losscounter").textContent = "0";
 //randomly pick a value from my array
 var rand = Math.floor(Math.random() * geolocations.length);
 // console.log(rand);
-console.log(geolocations[rand])
+// console.log(geolocations[rand])
 
 //declaring a new varible for hangman word
 var geoword = []
@@ -88,7 +88,7 @@ function listword (wordlist) {
     for (let i = 0; i <wordlist.length; i++) {
         //console.log(geolocations.name)
         let word = wordlist[i]
-        console.log(word.name)
+        // console.log(word.name)
     }
 } 
 
@@ -96,7 +96,7 @@ function listword (wordlist) {
 for (let i = 0; i < geolocations[rand].Letters.length; i++){
     geoword[i] = "_ ";
 }
-// console.log(geoword.join(""))
+console.log(geoword.join(""))
 
 //converts '_, _, _' array to string
 document.getElementById("test1").textContent = geoword.join("")
@@ -121,7 +121,7 @@ document.addEventListener("keydown", function(keyevent){
     //make a var to set up array for wrong letters 
 
     if (match === false){
-        console.log (keyevent.key)
+        // console.log (keyevent.key)
         
     //Print keyevent under 'letters used', add element to array to keep all elements printed
         wrongletters.push(keyevent.key);
@@ -132,26 +132,9 @@ document.addEventListener("keydown", function(keyevent){
             guesses -= 1
         }
         if (guesses == 0 ) {
-            document.getElementById("losemessage").textContent = "You Lose :( "
             losses++;
             document.getElementById("losscounter").textContent = losses;
-        }
-        document.getElementById("test3").textContent = guesses
-    } else {
-        var is_winner = true;
-        for (let i = 0; i < geoword.length; i++) {
-            console.log(geoword[i])
-            if (geoword[i] == "_ ") {
-                is_winner = false;
-            }
-            console.log (is_winner);
-
-        }
-        if(is_winner) {
-            wins += 1;
-            document.getElementById("losemessage").textContent = "You Win!!! :)"
-    
-
+            
             //New Wrong Letter Array
             wrongletters = [];
             document.getElementById("test2").textContent = wrongletters;
@@ -165,11 +148,49 @@ document.addEventListener("keydown", function(keyevent){
             //re-assign to be empty array
             geoword = []
 
+            // console.log(geolocations[rand].Letters);
+            // console.log(rand);
             //symbolize letters as undersore in the hangmanword feild
             for (let i = 0; i < geolocations[rand].Letters.length; i++){
                 geoword[i] = "_ ";
             }
+            document.getElementById("test1").textContent = geoword.join("")
+            
+        }
+        document.getElementById("test3").textContent = guesses
+    } else {
+        var is_winner = true;
+        for (let i = 0; i < geoword.length; i++) {
+            // console.log(geoword[i])
+            if (geoword[i] == "_ ") {
+                is_winner = false;
+            }
+            // console.log (is_winner);
 
+        }
+        if(is_winner) {
+            wins += 1;
+            
+            //New Wrong Letter Array
+            wrongletters = [];
+            document.getElementById("test2").textContent = wrongletters;
+
+            //re-load Guesses left
+            guesses = 12;
+            document.getElementById("test3").textContent = guesses;
+            //randomly pick a new value from my array
+            rand = Math.floor(Math.random() * geolocations.length);
+
+            //re-assign to be empty array
+            geoword = []
+
+            // console.log(geolocations[rand].Letters);
+            // console.log(rand);
+            //symbolize letters as undersore in the hangmanword feild
+            for (let i = 0; i < geolocations[rand].Letters.length; i++){
+                geoword[i] = "_ ";
+            }
+            document.getElementById("test1").textContent = geoword.join("")
 
         }
         document.getElementById("wincounter").textContent = wins;
