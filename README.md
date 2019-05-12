@@ -12,3 +12,5 @@ Using you keyboard you can guess letters for the current word to guess. You have
 Good luck! 
 
 Created by: Ellen Buelow for U of M Coding Boot Camp Assignment 3.
+
+Github Link: https://buelowek1225.github.io/Word_Guess_Game/
